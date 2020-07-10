@@ -63,7 +63,7 @@ public class PairedPortal : MonoBehaviour
 
             Vector3 offsetPosition = targetPortal.transform.position + -targetPortal.transform.forward * 0.01f;
             Vector3 cameraPosition = cameraMatrix.MultiplyPoint(offsetPosition);
-            Vector3 cameraNormal = cameraMatrix.MultiplyVector(-targetPortal.transform.forward).normalized * 1.0f;
+            Vector3 cameraNormal = cameraMatrix.MultiplyVector(-targetPortal.transform.forward).normalized;
             Vector4 clipPlane = new Vector4(cameraNormal.x, cameraNormal.y, cameraNormal.z, -Vector3.Dot(cameraPosition, cameraNormal));
             portalCamera.projectionMatrix =  portalCamera.CalculateObliqueMatrix(clipPlane);
 
