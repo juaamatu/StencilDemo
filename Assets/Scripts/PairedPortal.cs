@@ -61,7 +61,7 @@ public class PairedPortal : MonoBehaviour
             Vector3 transformedLook = worldMatrix.MultiplyVector(lookLocal);
             portalCamera.transform.rotation = Quaternion.LookRotation(transformedLook, Vector3.up);
 
-            Vector3 offsetPosition = targetPortal.transform.position + -targetPortal.transform.forward * 0.01f;
+            Vector3 offsetPosition = targetPortal.transform.position - targetPortal.transform.forward * 0.01f;
             Vector3 cameraPosition = cameraMatrix.MultiplyPoint(offsetPosition);
             Vector3 cameraNormal = cameraMatrix.MultiplyVector(-targetPortal.transform.forward).normalized;
             Vector4 clipPlane = new Vector4(cameraNormal.x, cameraNormal.y, cameraNormal.z, -Vector3.Dot(cameraPosition, cameraNormal));
