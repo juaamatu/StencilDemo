@@ -5,13 +5,14 @@
         _MainTex ("Texture", 2D) = "white" {}
         _PortalIndex ("_PortalIndex", int) = 1
     }
+    
     SubShader
     {
         Tags
-		{ 
-			"RenderType" = "Opaque" 
-			"Queue" = "Geometry+2" 
-		}
+        { 
+            "RenderType" = "Opaque" 
+            "Queue" = "Geometry+2" 
+        }
     
         Pass
         {
@@ -24,7 +25,6 @@
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-
             #include "UnityCG.cginc"
 
             struct appdata
@@ -48,7 +48,6 @@
             }
 
             sampler2D _MainTex;
-
             fixed4 frag (v2f i) : SV_Target
             {
                 return tex2D(_MainTex, i.uv);
